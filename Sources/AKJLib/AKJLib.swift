@@ -1,5 +1,3 @@
-// The Swift Programming Language
-// https://docs.swift.org/swift-book
 import Foundation
 import UIKit
 
@@ -152,12 +150,12 @@ public struct AKJLib {
         }
     }
   
-    enum DateConversionError: Error {
+    public enum DateConversionError: Error {
         case invalidFormat
         case nilInput
     }
     
-    enum ConversionMode {
+    public enum ConversionMode {
         case toDate
         case toString
         case formatChange
