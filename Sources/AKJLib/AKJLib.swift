@@ -5,7 +5,7 @@ import UIKit
 
 public struct AKJLib {
        
-    static func removeSpace(str: String?)->String{
+    public static func removeSpace(str: String?)->String{
       var retVal = ""
       if str != nil && !str!.isEmpty {
         retVal = str?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
@@ -13,7 +13,7 @@ public struct AKJLib {
       return retVal
     }
     
-    static func removeExtraSpacesMorethan2(input: String) -> String {
+    public static func removeExtraSpacesMorethan2(input: String) -> String {
         do {
             let regex = try NSRegularExpression(pattern: "\\s{2,}", options: .caseInsensitive)
             let range = NSRange(location: 0, length: input.utf16.count)
@@ -24,7 +24,7 @@ public struct AKJLib {
         }
     }
     
-    static func GetCompanyCode(CompanyID : Int) -> String {
+    public static func GetCompanyCode(CompanyID : Int) -> String {
            var CodeName = ""
            switch CompanyID {
            case 1: CodeName = "HDE"
@@ -48,7 +48,7 @@ public struct AKJLib {
         }
     
     
-    static func GetCompanyName(CompanyID : Int) -> String{
+    public static func GetCompanyName(CompanyID : Int) -> String{
         var Name = ""
         switch CompanyID {
         case 1: Name = "HALDRUP GmbH"
@@ -80,7 +80,7 @@ public struct AKJLib {
     }
     
    
-       static func capitalizeFirstLetter(_ inputString: String) -> String {
+    public static func capitalizeFirstLetter(_ inputString: String) -> String {
            // Check if the input string is not empty
            guard !inputString.isEmpty else {
                return inputString
@@ -95,7 +95,7 @@ public struct AKJLib {
            return capitalizedString
        }
        
-    static func TimeStamp() -> String {
+    public static func TimeStamp() -> String {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "en_US_POSIX")
         formatter.dateFormat = "ddMMyyyyHHmmssSSS"
@@ -106,7 +106,7 @@ public struct AKJLib {
     }
     
     
-    static func colorWithHexString (hex:String) -> UIColor {
+    public static func colorWithHexString (hex:String) -> UIColor {
         
         var cString = hex.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).uppercased()
         
@@ -132,14 +132,14 @@ public struct AKJLib {
     }
     
     
-    static func daysBetweenDates( endDate: Date) -> Int {
+    public static func daysBetweenDates( endDate: Date) -> Int {
         let calendar: Calendar = Calendar.current
         let date1 = calendar.startOfDay(for: Date())
         let date2 = calendar.startOfDay(for: endDate)
         return calendar.dateComponents([.day], from: date1, to: date2).day!
     }
     
-    static func formatAsEuro(number: Double) -> String {
+    public static func formatAsEuro(number: Double) -> String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         formatter.currencyCode = "EUR"
@@ -163,7 +163,7 @@ public struct AKJLib {
         case formatChange
     }
 
-    static func convertDate(_ input: Any?, mode: ConversionMode) throws -> Any {
+    public static func convertDate(_ input: Any?, mode: ConversionMode) throws -> Any {
         let inputDateFormatter = DateFormatter()
         inputDateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSSSSSS"
         inputDateFormatter.locale = Locale(identifier: "en_US_POSIX")
@@ -197,7 +197,7 @@ public struct AKJLib {
         }
     }
     
-    static func convertDate(_ input: Any?, mode: ConversionMode,inputFormat:String,outputFormat:String) throws -> Any {
+    public static func convertDate(_ input: Any?, mode: ConversionMode,inputFormat:String,outputFormat:String) throws -> Any {
         let inputDateFormatter = DateFormatter()
         inputDateFormatter.dateFormat = inputFormat
         inputDateFormatter.locale = Locale(identifier: "en_US_POSIX")
@@ -231,7 +231,7 @@ public struct AKJLib {
         }
     }
     
-    static func fileExtension(fromPath path: String) -> String? {
+    public static func fileExtension(fromPath path: String) -> String? {
         // Create a URL from the given path
         if let url = URL(string: path) {
             // Get the path extension from the URL
