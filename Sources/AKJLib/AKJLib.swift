@@ -103,18 +103,7 @@ public struct AKJLib {
         return uniqueName
     }
     
-    public static func setGradientBackground(majorColorHex :String,gradientAlpha :CGFloat,view :inout UIView) {
-        let majorColor = colorWithHexString(hex: majorColorHex)
-        let colorTop =  majorColor.withAlphaComponent(gradientAlpha).cgColor
-        let colorBottom = majorColor.cgColor
-        
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [colorTop, colorBottom]
-        gradientLayer.locations = [0.0, 1.0]
-        gradientLayer.frame = view.bounds
-        view.layer.insertSublayer(gradientLayer, at:0)
-    }
-    
+   
     public static func ColorHexWithPercent(PercentVal : Double) ->String{
         var colorVal = "434343"
         if PercentVal == 100{
