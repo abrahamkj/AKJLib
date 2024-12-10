@@ -45,7 +45,6 @@ public struct AKJLib {
           
         }
     
-    
     public static func GetCompanyName(CompanyID : Int) -> String{
         var Name = ""
         switch CompanyID {
@@ -77,7 +76,6 @@ public struct AKJLib {
         return Name
     }
     
-   
     public static func capitalizeFirstLetter(_ inputString: String) -> String {
            // Check if the input string is not empty
            guard !inputString.isEmpty else {
