@@ -103,6 +103,30 @@ public struct AKJLib {
         return uniqueName
     }
     
+    public static func setGradientBackground(majorColorHex :String,gradientAlpha :CGFloat,view :inout UIView) {
+        let majorColor = colorWithHexString(hex: majorColorHex)
+        let colorTop =  majorColor.withAlphaComponent(gradientAlpha).cgColor
+        let colorBottom = majorColor.cgColor
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [colorTop, colorBottom]
+        gradientLayer.locations = [0.0, 1.0]
+        gradientLayer.frame = view.bounds
+        view.layer.insertSublayer(gradientLayer, at:0)
+    }
+    
+    public static func ColorHexWithPercent(PercentVal : Double) ->String{
+        var colorVal = "434343"
+        if PercentVal == 100{
+            colorVal = "2ECC46"
+        }else if PercentVal < 100 && PercentVal >= 25{
+            colorVal = "FD8D0E"
+        }
+        else if PercentVal < 25{
+            colorVal = "FC2B2D"
+        }
+        return colorVal
+    }
     
     public static func colorWithHexString (hex:String) -> UIColor {
         
@@ -237,5 +261,17 @@ public struct AKJLib {
             return fileExtension
         }
         return nil
+    }
+    
+    public static func clearAllTextFields(in view: UIView) {
+        for subview in view.subviews {
+            if let textField = subview as? UITextField {
+                textField.text = ""
+                print(textField.placeholder ?? "","-- cleared")
+            } else {
+                // Recursively clear text fields in nested subviews
+                clearAllTextFields(in: subview)
+            }
+        }
     }
 }
