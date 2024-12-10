@@ -262,16 +262,5 @@ public struct AKJLib {
         }
         return nil
     }
-    
-    public static func clearAllTextFields(in view: UIView) {
-        for subview in view.subviews {
-            if let textField = subview as? UITextField {
-                textField.text = ""
-                print(textField.placeholder ?? "","-- cleared")
-            } else {
-                // Recursively clear text fields in nested subviews
-                clearAllTextFields(in: subview)
-            }
-        }
-    }
+ 
 }
